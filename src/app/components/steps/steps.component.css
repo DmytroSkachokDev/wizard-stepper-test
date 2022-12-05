@@ -1,0 +1,43 @@
+.steps {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: fit-content;
+}
+
+.line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #57B7AE;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+}
+
+.progressbar {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+}
+
+.progressbar li {
+    list-style-type: none;
+    width: 40px;
+    height: 40px;
+    color: #57B7AE;
+    background-color: #fff;
+    border: 2px solid #57B7AE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.progressbar li.active {
+    color: #fff;
+    background-color: #57B7AE;
+}
