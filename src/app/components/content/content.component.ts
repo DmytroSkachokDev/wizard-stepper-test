@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
-import { IStep } from 'src/app/interfaces/step.interface';
+import { Component } from '@angular/core';
 import { StepsService } from 'src/app/services/steps.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -9,19 +8,12 @@ import { map } from 'rxjs/operators';
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.css']
 })
-export class ContentComponent implements OnInit {
+export class ContentComponent {
 
   currentStep$: Observable<number> = this.stepsService.getCurrentStep().pipe(
     map((step) => step.stepNumber)
   );
 
   constructor(private stepsService: StepsService) { }
-
-  ngOnInit(): void {
-  }
-
-  // onCompleteStep() {
-  //   this.step.isComplete = true;
-  // }
 
 }

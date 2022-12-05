@@ -3,8 +3,8 @@
     <ul class="progressbar">
       <li
         (click)="onStepClick(step)"
-        *ngFor="let step of steps | async; let i = index" 
-        [ngClass]="{ 'active': (currentStep | async)?.stepNumber === step.stepNumber }"
+        *ngFor="let step of steps$ | async; let i = index" 
+        [ngClass]="{ 'active': (currentStep$ | async)?.stepNumber === step.stepNumber }"
       >{{step.stepNumber}}</li>
     </ul>
 </div>

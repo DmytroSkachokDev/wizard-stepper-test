@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IStep } from 'src/app/interfaces/step.interface';
 import { StepsService } from 'src/app/services/steps.service';
 import { Observable } from 'rxjs';
@@ -10,17 +10,17 @@ import { Observable } from 'rxjs';
 })
 export class StepsComponent implements OnInit {
 
-  steps: Observable<IStep[]>;
-  currentStep: Observable<IStep>;
+  steps$: Observable<IStep[]>;
+  currentStep$: Observable<IStep>;
 
   constructor(private stepsService: StepsService) { }
 
   ngOnInit(): void {
-    this.steps = this.stepsService.getSteps();
-    this.currentStep = this.stepsService.getCurrentStep();
+    this.steps$ = this.stepsService.getSteps();
+    this.currentStep$ = this.stepsService.getCurrentStep();
   }
 
-  onStepClick(step: IStep) {
+  public onStepClick(step: IStep): void {
     this.stepsService.setCurrentStep(step);
   }
 

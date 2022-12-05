@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IStep } from 'src/app/interfaces/step.interface';
 import { Observable } from 'rxjs';
 import { StepsService } from '../../services/steps.service';
@@ -7,23 +7,23 @@ import { StepsService } from '../../services/steps.service';
   selector: 'app-buttons',
   templateUrl: './buttons.component.html',
   styleUrls: ['./buttons.component.css'],
-  encapsulation: ViewEncapsulation.None
 })
 export class ButtonsComponent implements OnInit {
 
-  currentStep: Observable<IStep>;
+  currentStep$: Observable<IStep>;
 
   constructor(private stepsService: StepsService) { }
 
   ngOnInit(): void {
-    this.currentStep = this.stepsService.getCurrentStep();
+    this.currentStep$ = this.stepsService.getCurrentStep();
   }
 
-  previousStep() {
+  public previousStep(): void {
     this.stepsService.moveToPrevStep();
   }
 
-  nextStep() {
+  public nextStep(): void {
     this.stepsService.moveToNextStep();
   }
+  
 }

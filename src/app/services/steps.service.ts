@@ -24,15 +24,15 @@ export class StepsService {
     this.currentStep$.next(step);
   }
 
-  getCurrentStep(): Observable<IStep> {
+  public getCurrentStep(): Observable<IStep> {
     return this.currentStep$.asObservable();
   }
 
-  getSteps(): Observable<IStep[]> {
+  public getSteps(): Observable<IStep[]> {
     return this.steps$.asObservable();
   }
 
-  moveToNextStep(): void {
+  public moveToNextStep(): void {
     const index = this.currentStep$.value.stepNumber;
 
     if (index < this.steps$.value.length) {
@@ -40,7 +40,7 @@ export class StepsService {
     }
   }
 
-  moveToPrevStep(): void {
+  public moveToPrevStep(): void {
     const index = this.currentStep$.value.stepNumber - 2;
 
     if (index >= 0) {
